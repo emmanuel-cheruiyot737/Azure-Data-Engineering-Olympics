@@ -16,9 +16,9 @@ Architecture.
 
 - **Data Source** – Olympic datasets (CSV files):
   
-    ```- Athletes.csv``` → Athlete details (Name, Gender, Country, Discipline)
+    ``` -Athletes.csv``` → Athlete details (Name, Gender, Country, Discipline)
   
-    ```- Coaches.csv``` → Coaching staff per team
+    ```-Coaches.csv``` → Coaching staff per team
   
     ```- EntriesGender.csv``` → Gender participation per sport
   
