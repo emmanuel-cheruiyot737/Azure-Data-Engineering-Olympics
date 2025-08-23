@@ -44,24 +44,25 @@ Architecture.
   - 🕒 Olympic history & participation
 
 ---
-  
 ## 📊 Key Insights Delivered
 
-- Country medal tallies for Tokyo Olympic 2021
+  - Country medal tallies for Tokyo Olympic 2021
 
-- Gender participation across all disciplines
+  - Gender participation across all disciplines
 
-- Athlete performance by age, sport, and country
+  - Athlete performance by age, sport, and country
 
-- Coach distribution per sport and country
+  - Coach distribution per sport and country
 
-- Team participation and size analysis
+  - Team participation and size analysis
 
-- Evolution of Olympic sports & popularity trends
+  - Evolution of Olympic sports & popularity trends
 
 ---
-  ## 📂 Project Workflow
-``` flowchart LR
+## 📂 Project Workflow
+```
+flowchart LR
+
 |-- A[Data Sources] --> B[Azure Data Factory]
 |-- B --> C[Data Lake - Raw Zone]
 |-- C --> D[Azure Databricks - PySpark ETL]
@@ -94,53 +95,55 @@ olympic-data-analytics/
 
 ## 🛠️ Tech Stack
 
-- **Azure Data Factory** – Data ingestion & orchestration
-
-- **Azure Data Lake Storage Gen2** – Raw & curated zones
-
-- **Azure Databricks (PySpark)** – Data cleaning & transformation
-
-- **Azure Synapse Analytics** – Data modeling & SQL queries
-
-- **Power BI / Tableau / Looker Studio** – Dashboarding & visualization
-
-- **SQL & Python (PySpark)** – ETL & analytics
+  - **Azure Data Factory** – Data ingestion & orchestration
   
-  ---
+  - **Azure Data Lake Storage Gen2** – Raw & curated zones
+  
+  - **Azure Databricks (PySpark)** – Data cleaning & transformation
+  
+  - **Azure Synapse Analytics** – Data modeling & SQL queries
+
+  - **Power BI / Tableau / Looker Studio** – Dashboarding & visualization
+
+  - **SQL & Python (PySpark)** – ETL & analytics
+  
+---
 
 ## 🔑 Prerequisites
 
-- Azure subscription (ADF, ADLS, Databricks, Synapse enabled)
+  - Azure subscription (ADF, ADLS, Databricks, Synapse enabled)
 
-- Databricks cluster configured
+  - Databricks cluster configured
 
-- Power BI Desktop / Tableau installed
+  - Power BI Desktop / Tableau installed
 
-- Olympic dataset (Kaggle / IOC historical data)
+  - Olympic dataset (Kaggle / IOC historical data)
 
 ## 📥 Installation & Setup
 
-**1.** Clone the repository:
+  **1.** Clone the repository:
 
-```bash
+```
+bash
+
 git clone https://github.com/username/olympic-data-analytics.git
 cd olympic-data-analytics
 ```
 
-**2.** Deploy **ADF pipelines** using JSON files in ```/pipelines/.```
-
-**3.** Upload raw datasets into **ADLS Raw Zone**.
-
-**4.** Run **PySpark ETL notebooks** in ```/notebooks/```to transform data.
-
-**5.** Execute **SQL scripts** in ```/sql/``` to create fact & dimension tables in Synapse.
-
-**6.** Connect **Power BI** to Synapse to build dashboards.
+  **2.** Deploy **ADF pipelines** using JSON files in ```/pipelines/.```
+  
+  **3.** Upload raw datasets into **ADLS Raw Zone**.
+  
+  **4.** Run **PySpark ETL notebooks** in ```/notebooks/```to transform data.
+  
+  **5.** Execute **SQL scripts** in ```/sql/``` to create fact & dimension tables in Synapse.
+  
+  **6.** Connect **Power BI** to Synapse to build dashboards.
 
 ---
 
 ## 🔄 Data Transformation (PySpark ETL in Databricks)
-# Load Raw Data from ADLS
+  ## Load Raw Data from ADLS
 ```
 python
 
@@ -167,7 +170,9 @@ clean_medals_df = medals_df.filter(col("Medal").isin("Gold", "Silver", "Bronze")
 ```
 
 ## Medal Aggregation by Country
-```python
+```
+python
+
 from pyspark.sql.functions import count
 
 country_medals_df = clean_medals_df.groupBy("Country", "Medal") \
@@ -244,39 +249,39 @@ ORDER BY TotalMedals DESC;
 ---
 ## 📊 Key Insights
 
-   - Country medal tallies across Tokyo Olympics
-
-   - Gender participation per sport (from ```EntriesGender.csv```)
-
-   - Athlete performance by country and discipline (from ```Athletes.csv```)
+  - Country medal tallies across Tokyo Olympics
+ 
+  - Gender participation per sport (from ```EntriesGender.csv```)
+  
+  - Athlete performance by country and discipline (from ```Athletes.csv```)
    
-   - Coaching staff influence by country (from ```Coaches.csv```)
+  - Coaching staff influence by country (from ```Coaches.csv```)
    
-   - National team compositions (from ```Teams.csv```)
+  - National team compositions (from ```Teams.csv```)
   
 ---
  
- ## ✅ Learnings
+## ✅ Learnings
 
-- Designed and implemented a **Medallion Architecture** (Raw → Curated →      Analytics).
+  - Designed and implemented a **Medallion Architecture** (Raw → Curated →      Analytics).
 
-- Optimized PySpark jobs for large-scale ETL workloads.
+  - Optimized PySpark jobs for large-scale ETL workloads.
 
-- Applied **star schema modeling** for analytical efficiency in Synapse.
+  - Applied **star schema modeling** for analytical efficiency in Synapse.
 
-- Improved **data storytelling** with interactive Power BI dashboards.
+  - Improved **data storytelling** with interactive Power BI dashboards.
 
 ---
 
 ## 📈 Future Enhancements
 
-- Add real-time ingestion via **Azure Event Hub + Stream Analytics**
+  - Add real-time ingestion via **Azure Event Hub + Stream Analytics**
 
-- Deploy predictive models (e.g., athlete performance forecasting)
+  - Deploy predictive models (e.g., athlete performance forecasting)
 
-- Automate CI/CD with **GitHub Actions + Azure DevOps**
+  - Automate CI/CD with **GitHub Actions + Azure DevOps**
 
-- Build a centralized **Data Catalog with Purview**
+  - Build a centralized **Data Catalog with Purview**
 
 ---
   
@@ -290,21 +295,21 @@ ORDER BY TotalMedals DESC;
 
 ## Skills Demonstrated
 
-- Cloud Data Engineering (Azure ecosystem)
+  - Cloud Data Engineering (Azure ecosystem)
 
-- Data Pipeline Orchestration (ADF)
+  - Data Pipeline Orchestration (ADF)
 
-- Big Data Processing (PySpark, Databricks)
+  - Big Data Processing (PySpark, Databricks)
+ 
+  - Data Warehousing & Modeling (Synapse, Star Schema)
 
-- Data Warehousing & Modeling (Synapse, Star Schema)
+  - Business Intelligence & Visualization (Power BI, Tableau, Looker Studio)
 
-- Business Intelligence & Visualization (Power BI, Tableau, Looker Studio)
+  - SQL Analytics & Optimization
 
-- SQL Analytics & Optimization
+  - End-to-End Pipeline Development
 
-- End-to-End Pipeline Development
-
-  ---
+---
 
 ## 📥 Dataset
 
