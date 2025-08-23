@@ -141,7 +141,9 @@ cd olympic-data-analytics
 
 ## 🔄 Data Transformation (PySpark ETL in Databricks)
 # Load Raw Data from ADLS
-```python
+```
+python
+
 athletes_df = spark.read.csv(
     "abfss://raw@<storage_account>.dfs.core.windows.net/athletes.csv",
     header=True, inferSchema=True
@@ -153,7 +155,9 @@ medals_df = spark.read.csv(
 )
 ```
 ## Data Cleaning & Transformation
-```python
+```
+python
+
 from pyspark.sql.functions import col, trim, upper
 
 clean_athletes_df = athletes_df.withColumn("Name", trim(col("Name"))) \
@@ -175,8 +179,11 @@ country_medals_df.write.mode("overwrite").parquet(
 ```
 
 ## 🗂️ Data Modeling (SQL in Synapse)
-### Create Dimension Tables
-```sql
+
+## Create Dimension Tables
+```
+sql
+
 CREATE TABLE DimCountry (
     CountryID INT IDENTITY PRIMARY KEY,
     CountryName NVARCHAR(100)
@@ -188,10 +195,26 @@ CREATE TABLE DimAthlete (
     Gender CHAR(1),
     CountryID INT FOREIGN KEY REFERENCES DimCountry(CountryID)
 );
+
+CREATE TABLE DimCoach (
+    CoachID INT IDENTITY PRIMARY KEY,
+    Name NVARCHAR(150),
+    CountryID INT FOREIGN KEY REFERENCES DimCountry(CountryID),
+    Discipline NVARCHAR(100)
+);
+
+CREATE TABLE DimTeam (
+    TeamID INT IDENTITY PRIMARY KEY,
+    Name NVARCHAR(150),
+    CountryID INT FOREIGN KEY REFERENCES DimCountry(CountryID),
+    Sport NVARCHAR(100),
+    TeamSize INT
 ```
 
 ### Create Fact Table
-```sql
+```
+sql
+
 CREATE TABLE FactMedals (
     FactID INT IDENTITY PRIMARY KEY,
     AthleteID INT FOREIGN KEY REFERENCES DimAthlete(AthleteID),
@@ -201,10 +224,13 @@ CREATE TABLE FactMedals (
     Medal NVARCHAR(10),
     Year INT
 );
+
 ```
 
 ### Medal Tally Query
-```sql
+```
+sql
+
 SELECT 
     c.CountryName,
     m.Medal,
@@ -213,31 +239,35 @@ FROM FactMedals m
 JOIN DimCountry c ON m.CountryID = c.CountryID
 GROUP BY c.CountryName, m.Medal
 ORDER BY TotalMedals DESC;
+
 ```
 ---
 ## 📊 Key Insights
 
    - Country medal tallies across Tokyo Olympics
 
-   - Gender participation per sport (from EntriesGender.csv)
+   - Gender participation per sport (from ```EntriesGender.csv```)
 
-   - Athlete performance by country and discipline (from Athletes.csv)
+   - Athlete performance by country and discipline (from ```Athletes.csv```)
    
-   - Coaching staff influence by country (from Coaches.csv)
+   - Coaching staff influence by country (from ```Coaches.csv```)
    
-   - National team compositions (from Teams.csv)
+   - National team compositions (from ```Teams.csv```)
   
 ---
  
  ## ✅ Learnings
 
-- Designed and implemented a **Medallion Architecture** (Raw → Curated → Analytics).
+- Designed and implemented a **Medallion Architecture** (Raw → Curated →      Analytics).
 
 - Optimized PySpark jobs for large-scale ETL workloads.
 
-- Applied **star** schema modeling for analytical efficiency in Synapse.
+- Applied **star schema modeling** for analytical efficiency in Synapse.
 
 - Improved **data storytelling** with interactive Power BI dashboards.
+
+---
+
 ## 📈 Future Enhancements
 
 - Add real-time ingestion via **Azure Event Hub + Stream Analytics**
@@ -247,12 +277,16 @@ ORDER BY TotalMedals DESC;
 - Automate CI/CD with **GitHub Actions + Azure DevOps**
 
 - Build a centralized **Data Catalog with Purview**
+
+---
   
 ## Sample Dashboard
 
 ---
 
 (Add screenshots of your Power BI/Tableau dashboards here for visual appeal)
+
+---
 
 ## Skills Demonstrated
 
