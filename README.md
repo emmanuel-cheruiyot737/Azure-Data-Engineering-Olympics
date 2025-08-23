@@ -127,7 +127,7 @@ olympic-data-analytics/
 bash
 
 git clone https://github.com/username/olympic-data-analytics.git
-cd olympic-data-analytics
+
 ```
 
   **2.** Deploy **ADF pipelines** using JSON files in ```/pipelines/.```
@@ -214,6 +214,7 @@ CREATE TABLE DimTeam (
     CountryID INT FOREIGN KEY REFERENCES DimCountry(CountryID),
     Sport NVARCHAR(100),
     TeamSize INT
+);
 ```
 
 ### Create Fact Table
@@ -289,11 +290,6 @@ ORDER BY TotalMedals DESC;
 
 ![Medal Tally Dashboard](https://github.com/emmanuel-cheruiyot737/olpymic/blob/main/power%20bi%20olypic.png)
 
-
----
-
-(Add screenshots of your Power BI/Tableau dashboards here for visual appeal)
-
 ---
 
 ## Skills Demonstrated
@@ -316,8 +312,8 @@ ORDER BY TotalMedals DESC;
 
 ## 📥 Dataset
 
-Source: Olympic Data from Kaggle
- (or IOC APIs / historical repositories)
+Source: [Kaggle – Tokyo 2021 Olympics Dataset](https://www.kaggle.com/datasets/piterfm/tokyo-2020-olympics)
+
 
 ---
 
