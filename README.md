@@ -15,16 +15,11 @@ Architecture.
 ## The solution follows a modern data engineering architecture on Azure:
 
 - **Data Source** – Olympic datasets (CSV files):
-  
- ``` - Athletes.csv``` → Athlete details (Name, Gender, Country, Discipline)
-  
-  ```- Coaches.csv``` → Coaching staff per team
-
-  ```- EntriesGender.csv``` → Gender participation per sport
-
-  ```- Medals.csv``` → Medal winners & events
-
-  ```- Teams.csv``` → National Olympic Committees (NOCs) and team details
+    ```- Athletes.csv``` → Athlete details (Name, Gender, Country, Discipline)
+    ```- Coaches.csv``` → Coaching staff per team
+    ```- EntriesGender.csv``` → Gender participation per sport
+    ```- Medals.csv``` → Medal winners & events
+    ```- Teams.csv``` → National Olympic Committees (NOCs) and team details
 
 - **Ingestion (Azure Data Factory)**  – Automated pipelines for ingesting CSV data into Azure Data Lake Storage **(Raw Zone)**
 
