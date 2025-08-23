@@ -287,6 +287,9 @@ ORDER BY TotalMedals DESC;
   
 ## Sample Dashboard
 
+![Medal Tally Dashboard](https://github.com/emmanuel-cheruiyot737/olpymic/blob/main/power%20bi%20olypic.png)
+
+
 ---
 
 (Add screenshots of your Power BI/Tableau dashboards here for visual appeal)
