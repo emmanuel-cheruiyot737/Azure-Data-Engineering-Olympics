@@ -14,9 +14,19 @@ Architecture.
 
 ## The solution follows a modern data engineering architecture on Azure:
 
-- **Data Source** – Olympic datasets (CSV, JSON, APIs, historical repositories).
+- **Data Source** – Olympic datasets (CSV files):
+  
+ ``` - Athletes.csv``` → Athlete details (Name, Gender, Country, Discipline)
+  
+  ```- Coaches.csv``` → Coaching staff per team
 
-- **Ingestion (Azure Data Factory)**  – Automated pipelines for data ingestion, scheduling, and monitoring.
+  ```- EntriesGender.csv``` → Gender participation per sport
+
+  ```- Medals.csv``` → Medal winners & events
+
+  ```- Teams.csv``` → National Olympic Committees (NOCs) and team details
+
+- **Ingestion (Azure Data Factory)**  – Automated pipelines for ingesting CSV data into Azure Data Lake Storage **(Raw Zone)**
 
 - **Raw Storage (Azure Data Lake Gen2 - Raw Zone)** – Stores unprocessed data for traceability.
 
@@ -60,13 +70,23 @@ Architecture.
 ---
 
 ## 📂 Repository Structure
-```olympic-data-analytics/
-├── data/                # Sample datasets (CSV, JSON)
-├── notebooks/           # PySpark ETL notebooks
-├── pipelines/           # ADF pipeline JSON exports
-├── sql/                 # Synapse SQL scripts (star schema, fact/dim tables)
-├── dashboards/          # Power BI / Tableau reports
-└── README.md            # Project documentation
+```plaintext
+
+olympic-data-analytics/
+├── data/
+│   ├── Athletes.csv
+│   ├── Coaches.csv
+│   ├── EntriesGender.csv
+│   ├── Medals.csv
+│   └── Teams.csv
+├── notebooks/
+│   └── Tokyo Olympic Transformation.ipynb   # PySpark ETL pipeline
+├── pipelines/                               # ADF pipeline JSON exports
+├── sql/                                     # Synapse SQL scripts
+├── dashboards/                              # Power BI / Tableau reports
+├── cherry1.png                              # Project architecture diagram
+└── README.md                                # Project documentation
+
 ```
 ---
 
