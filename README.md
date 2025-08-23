@@ -20,9 +20,8 @@ Architecture.
      - ```Coaches.csv``` → Coaching staff per team
      
      -  ```EntriesGender.csv``` → Gender participation per sport
-  
-    ```- Medals.csv``` → Medal winners & events
-    ```- Teams.csv``` → National Olympic Committees (NOCs) and team details
+     -  ```Medals.csv``` → Medal winners & events
+     - ```Teams.csv``` → National Olympic Committees (NOCs) and team details
 
 - **Ingestion (Azure Data Factory)**  – Automated pipelines for ingesting CSV data into Azure Data Lake Storage **(Raw Zone)**
 
