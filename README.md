@@ -211,13 +211,15 @@ ORDER BY TotalMedals DESC;
 ```
 ## 📊 Key Insights
 
-- USA, USSR, and China dominate Olympic medal tallies across history.
+   - Country medal tallies across Tokyo Olympics
 
-- Female participation increased 5x from 1960 → 2020.
+   - Gender participation per sport (from EntriesGender.csv)
 
-- Average athlete age varies significantly by sport (e.g., gymnastics vs      marathon).
+   - Athlete performance by country and discipline (from Athletes.csv)
+   
+   - Coaching staff influence by country (from Coaches.csv)
 
-- Newer sports (e.g., skateboarding, surfing) show rapid growth in            participation.
+National team compositions (from Teams.csv)
   
 ---
  
