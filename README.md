@@ -1,5 +1,5 @@
 # tokyo-olympic-azure-data-engineering-project
-tokyo-olympic-azure-data-engineering-project
+
 # azure-data-engineer---multi-source
 
 ## 📌 Project Overview
@@ -7,7 +7,7 @@ tokyo-olympic-azure-data-engineering-project
 ![project Pipeline](https://github.com/emmanuel-cheruiyot737/azure-data-engineer---multi-source/blob/main/cherry1.png)
 
 
-This project demonstrates an end-to-end data engineering pipeline on Microsoft Azure to analyze Olympic Games data. It covers the entire data lifecycle **— ingestion → storage → transformation → analytics → visualization** enabling insights into medal tallies, athlete performance, gender participation, and sports evolution over time
+This project demonstrates an **end-to-end data engineering pipeline on Microsoft Azure** to analyze Olympic Games data. It covers the entire data lifecycle **— ingestion → storage → transformation → analytics → visualization** enabling insights into medal tallies, athlete performance, gender participation, and sports evolution over time
 Architecture.
 
 ---
@@ -43,20 +43,25 @@ Architecture.
 
   - 🕒 Olympic history & participation
 
-
+---
   
 ## 📊 Key Insights Delivered
 
-- Country medal tallies across Olympic history
+- Country medal tallies for Tokyo Olympic 2021
 
-- Gender participation trends over decades
+- Gender participation across all disciplines
 
 - Athlete performance by age, sport, and country
 
+- Coach distribution per sport and country
+
+- Team participation and size analysis
+
 - Evolution of Olympic sports & popularity trends
 
+---
   ## 📂 Project Workflow
-```flowchart LR
+``` flowchart LR
 |-- A[Data Sources] --> B[Azure Data Factory]
 |-- B --> C[Data Lake - Raw Zone]
 |-- C --> D[Azure Databricks - PySpark ETL]
@@ -67,7 +72,7 @@ Architecture.
 ---
 
 ## 📂 Repository Structure
-```plaintext
+``` plaintext
 
 olympic-data-analytics/
 ├── data/
@@ -209,6 +214,7 @@ JOIN DimCountry c ON m.CountryID = c.CountryID
 GROUP BY c.CountryName, m.Medal
 ORDER BY TotalMedals DESC;
 ```
+---
 ## 📊 Key Insights
 
    - Country medal tallies across Tokyo Olympics
@@ -218,8 +224,8 @@ ORDER BY TotalMedals DESC;
    - Athlete performance by country and discipline (from Athletes.csv)
    
    - Coaching staff influence by country (from Coaches.csv)
-
-    - National team compositions (from Teams.csv)
+   
+   - National team compositions (from Teams.csv)
   
 ---
  
