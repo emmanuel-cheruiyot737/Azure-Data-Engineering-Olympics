@@ -219,7 +219,7 @@ ORDER BY TotalMedals DESC;
    
    - Coaching staff influence by country (from Coaches.csv)
 
-National team compositions (from Teams.csv)
+    - National team compositions (from Teams.csv)
   
 ---
  
