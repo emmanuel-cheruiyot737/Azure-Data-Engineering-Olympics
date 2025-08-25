@@ -140,7 +140,7 @@ git clone https://github.com/username/olympic-data-analytics.git
 
 ---
 
-## 🔄 Data Transformation (PySpark ETL in Databricks
+## 🔄 Data Transformation (PySpark ETL in Databricks)
    #### Load Raw Data from ADLS
 ```
 python
