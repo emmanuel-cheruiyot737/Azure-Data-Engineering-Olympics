@@ -1,10 +1,8 @@
 # tokyo-olympic-azure-data-engineering-project
 
-# azure-data-engineer---multi-source
-
 ## 📌 Project Overview
 
-![project Pipeline](https://github.com/emmanuel-cheruiyot737/azure-data-engineer---multi-source/blob/main/cherry1.png)
+![project Pipeline](https://github.com/emmanuel-cheruiyot737/Azure-Data-Engineering-Olympics/blob/main/cherry1.png)
 
 
 This project demonstrates an **end-to-end data engineering pipeline on Microsoft Azure** to analyze Olympic Games data. It covers the entire data lifecycle **— ingestion → storage → transformation → analytics → visualization** enabling insights into medal tallies, athlete performance, gender participation, and sports evolution over time
@@ -35,13 +33,13 @@ Architecture.
 
 - **Visualization (Power BI / Looker Studio / Tableau)** – Interactive dashboards showing:
 
-  - 🥇 Country medal leaderboards
+  -  Country medal leaderboards
 
-  - 👩‍🦱 Athlete demographics (age, gender, sport)
+  -  Athlete demographics (age, gender, sport)
 
-  - 📈 Sports growth & popularity trends
+  -  Sports growth & popularity trends
 
-  - 🕒 Olympic history & participation
+  -  Olympic history & participation
 
 ---
 ## 📊 Key Insights Delivered
@@ -142,8 +140,8 @@ git clone https://github.com/username/olympic-data-analytics.git
 
 ---
 
-## 🔄 Data Transformation (PySpark ETL in Databricks)
-  ## Load Raw Data from ADLS
+## 🔄 Data Transformation (PySpark ETL in Databricks
+   #### Load Raw Data from ADLS
 ```
 python
 
@@ -157,7 +155,7 @@ medals_df = spark.read.csv(
     header=True, inferSchema=True
 )
 ```
-## Data Cleaning & Transformation
+#### Data Cleaning & Transformation
 ```
 python
 
@@ -169,7 +167,7 @@ clean_athletes_df = athletes_df.withColumn("Name", trim(col("Name"))) \
 clean_medals_df = medals_df.filter(col("Medal").isin("Gold", "Silver", "Bronze"))
 ```
 
-## Medal Aggregation by Country
+#### Medal Aggregation by Country
 ```
 python
 
@@ -185,7 +183,7 @@ country_medals_df.write.mode("overwrite").parquet(
 
 ## 🗂️ Data Modeling (SQL in Synapse)
 
-## Create Dimension Tables
+#### Create Dimension Tables
 ```
 sql
 
@@ -217,7 +215,7 @@ CREATE TABLE DimTeam (
 );
 ```
 
-### Create Fact Table
+#### Create Fact Table
 ```
 sql
 
@@ -233,7 +231,7 @@ CREATE TABLE FactMedals (
 
 ```
 
-### Medal Tally Query
+#### Medal Tally Query
 ```
 sql
 
